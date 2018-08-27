@@ -1112,7 +1112,7 @@ h3.tittle-w3l:after {
 .featured-section {
     padding-bottom: 5em;
 }
-.product-name-w3l h4 a {
+.product-name-w3l h4 {
     color: #000;
     font-size: 20px;
 }
@@ -1141,6 +1141,9 @@ h3.tittle-w3l:after {
     border: 1px solid #CACACA;
     padding: 20px;
     margin: 0 10px;
+}
+.w3l-specilamk:hover {
+    cursor: pointer;
 }
 .speioffer-agile {
     text-align: center;
@@ -2264,9 +2267,11 @@ img.zoom-img:hover{
     font-size: 14px;
     margin-bottom: 12px;
 }
+/*
 .product-single-w3l {
     border-top: 1px solid #1accfd;
 }
+*/
 .product-single-w3l p i {
     color: #1accfd;
     margin-right: 11px;
