@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="zxx" ng-app="100gmInfo">
 
 <head>
 	<title>100gm.info</title>
@@ -28,6 +28,10 @@
 			window.scrollTo(0, 1);
 		}
 	</script>
+	
+	<script src="js/angular.js"></script>
+	<script src="index.js"></script>
+	
 	<!--//tags -->
 	<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 	<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
@@ -37,8 +41,6 @@
 	<!--//pop-up-box-->
 	<!-- price range -->
 	<link rel="stylesheet" type="text/css" href="css/jquery-ui1.css">
-	<!-- fonts -->
-	<!--<link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800" rel="stylesheet">-->
 </head>
 
 <body>
@@ -161,14 +163,14 @@
 	<div class="ads-grid">
 		<div class="container">
 			<div class="agileinfo-ads-display col-md-12">
-				<div class="wrapper">
-					<!-- first section (nuts) -->
-					<div class="product-sec1">
-						<h3 class="heading-tittle">Nuts</h3>
-						<div class="col-md-4 product-men" data-toggle="modal" data-target="#SingleProdInfoModal">
+				<div class="wrapper" ng-controller="SectionCtrl as Sect">
+					<!-- section -->
+					<div class="product-sec1" ng-repeat="section in Sect.sections">
+						<h3 class="heading-tittle">{{section.title}}</h3>
+						<div class="col-md-4 product-men" data-toggle="modal" data-target="#SingleProdInfoModal" ng-repeat="item in section.items">
 							<div class="men-pro-item simpleCart_shelfItem">
 								<div class="men-thumb-item">
-									<img src="images/m1.jpg" alt="">
+									<img ng-src="images/{{item.image}}" alt="">
 									<div class="men-cart-pro">
 										<div class="inner-men-cart-pro">
 											<div class="link-product-add-cart">Quick View</div>
@@ -178,47 +180,7 @@
 								</div>
 								<div class="item-info-product ">
 									<h4>
-										<div>Almonds</div>
-									</h4>
-
-								</div>
-							</div>
-						</div>
-						<div class="col-md-4 product-men" data-toggle="modal" data-target="#SingleProdInfoModal">
-							<div class="men-pro-item simpleCart_shelfItem">
-								<div class="men-thumb-item">
-									<img src="images/m2.jpg" alt="">
-									<div class="men-cart-pro">
-										<div class="inner-men-cart-pro">
-											<div class="link-product-add-cart">Quick View</div>
-										</div>
-									</div>
-									<span class="product-new-top">New</span>
-
-								</div>
-								<div class="item-info-product ">
-									<h4>
-										<div>Cashew Nuts</div>
-									</h4>
-
-								</div>
-							</div>
-						</div>
-						<div class="col-md-4 product-men" data-toggle="modal" data-target="#SingleProdInfoModal">
-							<div class="men-pro-item simpleCart_shelfItem">
-								<div class="men-thumb-item">
-									<img src="images/m3.jpg" alt="">
-									<div class="men-cart-pro">
-										<div class="inner-men-cart-pro">
-											<div class="link-product-add-cart">Quick View</div>
-										</div>
-									</div>
-									<span class="product-new-top">New</span>
-
-								</div>
-								<div class="item-info-product ">
-									<h4>
-										<div>Pista</div>
+										<div>{{item.title}}</div>
 									</h4>
 
 								</div>
@@ -226,139 +188,9 @@
 						</div>
 						<div class="clearfix"></div>
 					</div>
-					<!-- //first section (nuts) -->
-					<!-- third section (oils) -->
-					<div class="product-sec1">
-						<h3 class="heading-tittle">Oils</h3>
-						<div class="col-md-4 product-men" data-toggle="modal" data-target="#SingleProdInfoModal">
-							<div class="men-pro-item simpleCart_shelfItem">
-								<div class="men-thumb-item">
-									<img src="images/mk4.jpg" alt="">
-									<div class="men-cart-pro">
-										<div class="inner-men-cart-pro">
-											<div class="link-product-add-cart">Quick View</div>
-										</div>
-									</div>
-									<span class="product-new-top">New</span>
-								</div>
-								<div class="item-info-product ">
-									<h4>
-										<div>Freedom Oil</div>
-									</h4>
-
-								</div>
-							</div>
-						</div>
-						<div class="col-md-4 product-men" data-toggle="modal" data-target="#SingleProdInfoModal">
-							<div class="men-pro-item simpleCart_shelfItem">
-								<div class="men-thumb-item">
-									<img src="images/mk5.jpg" alt="">
-									<div class="men-cart-pro">
-										<div class="inner-men-cart-pro">
-											<div class="link-product-add-cart">Quick View</div>
-										</div>
-									</div>
-									<span class="product-new-top">New</span>
-
-								</div>
-								<div class="item-info-product ">
-									<h4>
-										<div>Saffola Gold</div>
-									</h4>
-
-								</div>
-							</div>
-						</div>
-						<div class="col-md-4 product-men" data-toggle="modal" data-target="#SingleProdInfoModal">
-							<div class="men-pro-item simpleCart_shelfItem">
-								<div class="men-thumb-item">
-									<img src="images/mk6.jpg" alt="">
-									<div class="men-cart-pro">
-										<div class="inner-men-cart-pro">
-											<div class="link-product-add-cart">Quick View</div>
-										</div>
-									</div>
-									<span class="product-new-top">New</span>
-
-								</div>
-								<div class="item-info-product ">
-									<h4>
-										<div>Fortune Oil</div>
-									</h4>
-
-								</div>
-							</div>
-						</div>
-						<div class="clearfix"></div>
-					</div>
-					<!-- //third section (oils) -->
-					<!-- fourth section (noodles) -->
-					<div class="product-sec1">
-						<h3 class="heading-tittle">Pasta & Noodles</h3>
-						<div class="col-md-4 product-men" data-toggle="modal" data-target="#SingleProdInfoModal">
-							<div class="men-pro-item simpleCart_shelfItem">
-								<div class="men-thumb-item">
-									<img src="images/mk7.jpg" alt="">
-									<div class="men-cart-pro">
-										<div class="inner-men-cart-pro">
-											<div class="link-product-add-cart">Quick View</div>
-										</div>
-									</div>
-								</div>
-								<div class="item-info-product ">
-									<h4>
-										<div>Yippee Noodles</div>
-									</h4>
-
-								</div>
-							</div>
-						</div>
-						<div class="col-md-4 product-men" data-toggle="modal" data-target="#SingleProdInfoModal">
-							<div class="men-pro-item simpleCart_shelfItem">
-								<div class="men-thumb-item">
-									<img src="images/mk8.jpg" alt="">
-									<div class="men-cart-pro">
-										<div class="inner-men-cart-pro">
-											<div class="link-product-add-cart">Quick View</div>
-										</div>
-									</div>
-									<span class="product-new-top">New</span>
-
-								</div>
-								<div class="item-info-product ">
-									<h4>
-										<div>Wheat Pasta</div>
-									</h4>
-
-								</div>
-							</div>
-						</div>
-						<div class="col-md-4 product-men" data-toggle="modal" data-target="#SingleProdInfoModal">
-							<div class="men-pro-item simpleCart_shelfItem">
-								<div class="men-thumb-item">
-									<img src="images/mk9.jpg" alt="">
-									<div class="men-cart-pro">
-										<div class="inner-men-cart-pro">
-											<div class="link-product-add-cart">Quick View</div>
-										</div>
-									</div>
-									<span class="product-new-top">New</span>
-
-								</div>
-								<div class="item-info-product ">
-									<h4>
-										<div>Chinese Noodles</div>
-									</h4>
-
-								</div>
-							</div>
-						</div>
-						<div class="clearfix"></div>
-					</div>
-					<!-- //fourth section (noodles) -->
+					<!-- // section -->
 				</div>
 			</div>
-			<!-- //product right -->
 		</div>
 	</div>
 	<!-- //top products -->
@@ -377,54 +209,14 @@
 	<div class="featured-section" id="projects">
 		<div class="container">
 			<div class="content-bottom-in">
-				<ul id="flexiselDemo1">
-					<li data-toggle="modal" data-target="#SingleProdInfoModal">
+				<ul id="flexiselDemo1" ng-controller="SliderCtrl as Slide">
+					<li data-toggle="modal" data-target="#SingleProdInfoModal" ng-repeat="slider in Slide.sliders">
 						<div class="w3l-specilamk">
 							<div class="speioffer-agile">
-								<img src="images/s1.jpg" alt="">
+								<img ng-src="images/{{slider.image}}" alt="">
 							</div>
 							<div class="product-name-w3l">
-								<h4>Aashirvaad</h4>
-							</div>
-						</div>
-					</li>
-					<li data-toggle="modal" data-target="#SingleProdInfoModal">
-						<div class="w3l-specilamk">
-							<div class="speioffer-agile">
-								<img src="images/s4.jpg" alt="">
-							</div>
-							<div class="product-name-w3l">
-								<h4>Kissan Tomato Ketchup</h4>
-							</div>
-						</div>
-					</li>
-					<li data-toggle="modal" data-target="#SingleProdInfoModal">
-						<div class="w3l-specilamk">
-							<div class="speioffer-agile">
-								<img src="images/s2.jpg" alt="">
-							</div>
-							<div class="product-name-w3l">
-								<h4>Madhur Pure Sugar</h4>
-							</div>
-						</div>
-					</li>
-					<li data-toggle="modal" data-target="#SingleProdInfoModal">
-						<div class="w3l-specilamk">
-							<div class="speioffer-agile">
-								<img src="images/s8.jpg" alt="">
-							</div>
-							<div class="product-name-w3l">
-								<h4>Cadbury Choclairs</h4>
-							</div>
-						</div>
-					</li>
-					<li data-toggle="modal" data-target="#SingleProdInfoModal">
-						<div class="w3l-specilamk">
-							<div class="speioffer-agile">
-								<img src="images/s5.jpg" alt="">
-							</div>
-							<div class="product-name-w3l">
-								<h4>Sprite</h4>
+								<h4>{{slider.title}}</h4>
 							</div>
 						</div>
 					</li>
@@ -455,46 +247,16 @@
 	<!-- footer -->
 	<footer>
 		<div class="container">
-			<!-- footer first section -->
-			<p class="footer-main">
-			<!-- //footer first section -->
+			
 			<!-- footer third section -->
 			<div class="footer-info w3-agileits-info">
 				<!-- footer categories -->
-				<div class="col-sm-5 address-right">
-					<div class="col-xs-6 footer-grids">
+				<div class="col-sm-3 address-right">
+					<div class="footer-grids">
 						<h3>Categories</h3>
-						<ul>
-							<li>
-								<a href="product.html">Grocery</a>
-							</li>
-							<li>
-								<a href="product.html">Fruits</a>
-							</li>
-							<li>
-								<a href="product.html">Soft Drinks</a>
-							</li>
-							<li>
-								<a href="product.html">Biscuits & Cookies</a>
-							</li>
-							<li>
-								<a href="product.html">Snacks & Beverages</a>
-							</li>
-						</ul>
-					</div>
-					<div class="col-xs-6 footer-grids agile-secomk">
-						<ul>
-							<li>
-								<a href="product.html">Bread & Bakery</a>
-							</li>
-							<li>
-								<a href="product.html">Sweets</a>
-							</li>
-							<li>
-								<a href="product.html">Chocolates & Biscuits</a>
-							</li>
-							<li>
-								<a href="product.html">Dried Fruits & Nuts</a>
+						<ul ng-controller="CategoryCtrl as Cat">
+							<li ng-repeat="cat in Cat.cats">
+								<a href="product.html">{{cat.title}}</a>
 							</li>
 						</ul>
 					</div>
@@ -502,8 +264,8 @@
 				</div>
 				<!-- //footer categories -->
 				<!-- quick links -->
-				<div class="col-sm-5 address-right">
-					<div class="col-xs-6 footer-grids">
+				<div class="col-sm-3 address-right">
+					<div class="footer-grids">
 						<h3>Quick Links</h3>
 						<ul>
 							<li>
@@ -526,7 +288,11 @@
 							</li>
 						</ul>
 					</div>
-					<div class="col-xs-6 footer-grids">
+                </div>
+				<!-- //quick links -->
+				<!-- contact -->
+				<div class="col-sm-3 address-right">
+					<div class="footer-grids">
 						<h3>Get in Touch</h3>
 						<ul>
 							<li>
@@ -542,9 +308,9 @@
 						</ul>
 					</div>
 				</div>
-				<!-- //quick links -->
-				<!-- social icons -->
-				<div class="col-sm-2 footer-grids  w3l-socialmk">
+				<!-- //contact -->
+				<!-- social -->
+				<div class="col-sm-3 footer-grids  w3l-socialmk">
 					<h3>Follow Us on</h3>
 					<div class="social">
 						<ul>
@@ -576,99 +342,30 @@
 						<div class="clearfix"> </div>
 					</div>
 				</div>
-				<!-- //social icons -->
+				<!-- //social -->
 				<div class="clearfix"></div>
 			</div>
 			<!-- //footer third section -->
+			
 			<!-- footer fourth section (text) -->
 			<div class="footer-info agile-sometext">
 				<!-- brands -->
 				<div class="sub-some">
 					<h5>Popular Brands</h5>
-					<ul>
-						<li>
-							<a href="product.html">Aashirvaad</a>
-						</li>
-						<li>
-							<a href="product.html">Amul</a>
-						</li>
-						<li>
-							<a href="product.html">Bingo</a>
-						</li>
-						<li>
-							<a href="product.html">Boost</a>
-						</li>
-						<li>
-							<a href="product.html">Maggi</a>
-						</li>
-						<li>
-							<a href="product.html">Glucon-D</a>
-						</li>
-						<li>
-							<a href="product.html">Horlicks</a>
-						</li>
-						<li>
-							<a href="product2.html">Dabur</a>
-						</li>
-						<li>
-							<a href="product.html">Coca-Cola</a>
-						</li>
-						<li>
-							<a href="product.html">Cadbury</a>
-						</li>
-						<li>
-							<a href="product.html">Bru</a>
-						</li>
-						<li>
-							<a href="product.html">Bournvita</a>
-						</li>
-						<li>
-							<a href="product.html">Tang</a>
-						</li>
-						<li>
-							<a href="product.html">Pears</a>
-						</li>
-						<li>
-							<a href="product.html">Oreo</a>
-						</li>
-						<li>
-							<a href="product.html">Taj Mahal</a>
-						</li>
-						<li>
-							<a href="product.html">Sprite</a>
-						</li>
-						<li>
-							<a href="product.html">Thums Up</a>
-						</li>
-						<li>
-							<a href="product.html">Tata</a>
-						</li>
-						<li>
-							<a href="product2.html">Sunfeast</a>
-						</li>
-						<li>
-							<a href="product2.html">Sunsilk</a>
-						</li>
-						<li>
-							<a href="product.html">Patanjali</a>
-						</li>
-						<li>
-							<a href="product.html">MTR</a>
-						</li>
-						<li>
-							<a href="product.html">Kissan</a>
-						</li>
-						<li>
-							<a href="product2.html">Lipton</a>
+					<ul ng-controller="BrandCtrl as Brand">
+						<li ng-repeat="brand in Brand.brands">
+							<a href="product.html">{{brand.title}}</a>
 						</li>
 					</ul>
 				</div>
 				<!-- //brands -->
 			</div>
 			<!-- //footer fourth section (text) -->
+			
 		</div>
 	</footer>
 	<!-- //footer -->
+
 	<!-- copyright -->
 	<div class="copy-right">
 		<div class="container">
@@ -678,11 +375,8 @@
 	</div>
 	<!-- //copyright -->
 
-	<!-- js-files -->
-	<!-- jquery -->
 	<script src="js/jquery-2.1.4.min.js"></script>
 	<script src="js/jquery-ui.js"></script>
-	<!-- //jquery -->
 	
 	<!-- flexisel (for special offers) -->
 	<script src="js/jquery.flexisel.js"></script>
@@ -749,10 +443,7 @@
 	</script>
 	<!-- //smooth-scrolling-of-move-up -->
 
-	<!-- for bootstrap working -->
 	<script src="js/bootstrap.js"></script>
-	<!-- //for bootstrap working -->
-	<!-- //js-files -->
 
 
 </body>
